@@ -5,20 +5,25 @@ const sections = document.querySelectorAll("section")
 const addAChild = (content, sectionID) => {
   // create teh  li element and it's a tag child
   const listItemElement = document.createElement("li")
-  const relatedSection = document.getElementById(sectionID)
-  // add the content and the attr to the elements
-  // anchorTag.href = `#${theID}`
-  // anchorTag.innerHTML = content
 
-  // add the a element to the li element and add the li element to the ul element
+  // access the related section
+  const relatedSection = document.getElementById(sectionID)
+
+  // add the content to the li element
   listItemElement.innerHTML = content
+
+  // give a spicial id to teh navbar elemnt according to the section id
   listItemElement.id = `navTo${sectionID}`
+
+  // add the created li element to the ul parent
+  navList.appendChild(listItemElement)
+
+  // add the click function that scroll to the section
   listItemElement.addEventListener('click', () => {
-    console.log(sectionID)
     relatedSection.scrollIntoView({behavior: "smooth"})
 
   })
-  navList.appendChild(listItemElement)
+  
 }
 
 // create the navbar according to the sections
