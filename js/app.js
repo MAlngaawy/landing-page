@@ -5,14 +5,13 @@ const sections = document.querySelectorAll("section")
 const addAChild = (content, theID) => {
   // create teh  li element and it's a tag child
   const listItemElement = document.createElement("li")
-  const anchorTag = document.createElement("a")
   
   // add the content and the attr to the elements
-  anchorTag.href = `#${theID}`
-  anchorTag.innerHTML = content
+  // anchorTag.href = `#${theID}`
+  // anchorTag.innerHTML = content
 
   // add the a element to the li element and add the li element to the ul element
-  listItemElement.appendChild(anchorTag)
+  listItemElement.innerHTML = content
   navList.appendChild(listItemElement)
 }
 
