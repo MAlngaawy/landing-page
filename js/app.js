@@ -35,18 +35,31 @@ items.forEach(item => {
     //scroll to the related section
     relatedSection.scrollIntoView({behavior: "smooth"})
 
-    // remove active classes from all the section and add active class to the related section
-    sections.forEach(oneSection  => {
-      oneSection.className = ''
-    })
-    relatedSection.className = 'active'
-
-    // remove all active classes from all the items and add it to the clicked item
     items.forEach(item => {
       item.className = ''
     })
     item.className = 'active'
 
+  })
+
+})
+
+// handle the section active class while scrolling
+
+window.addEventListener('scroll', () => {
+
+  // loop for every section while the screen scroll
+  sections.forEach(single => {
+    // add the positions in a variables
+    const height = single.getBoundingClientRect().height
+    const top = single.getBoundingClientRect().top
+    const bottom = single.getBoundingClientRect().bottom
+    // check to add the class if the section in the view
+    if(top < height / 2 && bottom > height / 2) {
+      single.classList.add('active')
+    } else {
+      single.classList.remove('active')
+    }
   })
 
 })
